@@ -1,5 +1,5 @@
 package com.akshet;
-
+// https://www.codingninjas.com/studio/problems/find-minimum-sum-subarray-of-given-size_873368
 import java.util.Scanner;
 
 public class MinSumSubArrayFixed {

@@ -1,5 +1,5 @@
 package com.akshet;
-
+// https://www.codingninjas.com/studio/problems/first-negative-integer-in-every-window-of-size-k_1164406
 import java.util.ArrayList;
 import java.util.Scanner;
 
