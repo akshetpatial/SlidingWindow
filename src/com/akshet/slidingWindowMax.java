@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class slidingWindowMax {
 
     /* This Will Exceed the time limit */
-    private static int[] windowMax(int[] arr, int win) {
+   /* private static int[] windowMax(int[] arr, int win) {
         int i =0;
         int j = win-1;
         int size =  arr.length - win +1;
@@ -18,6 +18,36 @@ public class slidingWindowMax {
             ans[i] = max;
             i++;
             j++;
+        }
+        return ans;
+    }*/
+
+
+    private static int[] windowMax(int[] arr, int win) {
+        int i =0;
+        int j = 0;
+        int size =  arr.length - win +1;
+        int[] ans = new int[size];
+
+        List<Integer> list = new ArrayList<>();
+        while(j<arr.length){
+            int max_1 = arr[i];
+            if(j!=win){
+                if(max_1 < arr[j])
+
+                j++;
+            }
+        }
+
+        int max = findMax(i,j,arr);
+        while(j<arr.length){
+            ans[i] = max;
+            i++;
+            j++;
+            if(j<arr.length){
+                if(arr[j] > max)
+                    max = arr[j];
+            }
         }
         return ans;
     }
