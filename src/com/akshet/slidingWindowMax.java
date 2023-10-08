@@ -30,16 +30,35 @@ public class slidingWindowMax {
         int[] ans = new int[size];
 
         List<Integer> list = new ArrayList<>();
+        int max_1 = arr[i];
+        //list.add(max_1);
         while(j<arr.length){
-            int max_1 = arr[i];
-            if(j!=win){
-                if(max_1 < arr[j])
-
+            if(j-i!=win-1){
+                if(max_1 < arr[j]) {
+                    max_1 = arr[j];
+                    list.clear();
+                }
+                list.add(arr[j]);
                 j++;
+            }else{
+                //list.add(arr[j]);
+                ans[i] = list.get(0);
+                if(arr[i] == list.get(0)){
+                    list.remove(0);
+                }
+                i++;
+                j++;
+                if(j<arr.length){
+                    if(!list.isEmpty())
+                        if(arr[j] > list.get(0)){
+                            list.clear();
+                    }
+                    list.add(arr[j]);
+                }
             }
         }
 
-        int max = findMax(i,j,arr);
+        /*int max = findMax(i,j,arr);
         while(j<arr.length){
             ans[i] = max;
             i++;
@@ -48,7 +67,7 @@ public class slidingWindowMax {
                 if(arr[j] > max)
                     max = arr[j];
             }
-        }
+        }*/
         return ans;
     }
 
@@ -65,7 +84,7 @@ public class slidingWindowMax {
         System.out.println("Enter the Size of the Array: ");
         Scanner scan = new Scanner(System.in);
         int size = scan.nextInt();
-        System.out.println("Enter the elements of the Array: "); // 1 3 -1 -3 5 3 6 7
+        System.out.println("Enter the elements of the Array: "); // 1 3 -1 -3 5 3 6 7   10000 9999 9998 9997 9996 9995 9994 9993 9992 9991 9990
         int[] arr = new int[size];
         for(int i =0;i<size;i++)
             arr[i] = scan.nextInt();
